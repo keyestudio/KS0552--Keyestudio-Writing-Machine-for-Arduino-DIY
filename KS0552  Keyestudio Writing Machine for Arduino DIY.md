@@ -1,0 +1,493 @@
+# Writing Machine
+
+This is a CoreXY writing machine. It is compatible with distinct styles fonts
+like hollow font, filled font and monoline fonts. A customized special signature
+is not a dreamy reverie for you. In addition, it can draw and outline sleek and
+beautiful lines. With this amazing machine, you can create art works yourself.
+
+**Contents**
+
+[Writing Machine 1](#writing-machine)
+
+[1. Features 2](#_Toc29477)
+
+[2. Parameters 2](#_Toc8428)
+
+[3. How to assemble 4](#_Toc32286)
+
+[3.1 Install Arduino IDE and burn firmware 5](#_Toc6499)
+
+[3.2 Install Universal Gcode Sender 9](#_Toc15283)
+
+[4. Modify firmware parameters 11](#_Toc4698)
+
+[4.1 Wire up a power supply with USB cables 11](#_Toc18385)
+
+[4.2 Connect the machine to the Universal Gcode Sender 12](#_Toc25753)
+
+[4.3 Control the machine to move 13](#_Toc23146)
+
+[4.4 Set motion parameter 14](#_Toc18796)
+
+[4.5 Setting method 15](#_Toc11316)
+
+[4.6 Adjust the distance between the writing head and the paper
+16](#46-adjust-the-distance-between-the-writing-head-and-the-paper)
+
+[4.7 Adjust speed to write and draw 18](#47-adjust-speed-to-write-and-draw)
+
+[5. Generate pictures into Gcode through Inkscape
+19](#generate-pictures-into-gcode-through-inkscape)
+
+[5.1 Generate pictures into Gcode 19](#_Toc23820)
+
+[5.2 Open example pictures 20](#_Toc30158)
+
+[5.3 Generate outline picture 21](#_Toc4761)
+
+[6. Control the machine to draw via Universal Gcode Sender
+23](#control-the-machine-to-draw-via-universal-gcode-sender)
+
+[7. Turn fonts into Gcode through Inkscape 26](#_Toc12778)
+
+[7.1 Write a poem through inkscape 27](#71-write-a-poem-through-inkscape)
+
+[7.2 Deal with filled fonts 28](#72-deal-with-filled-fonts)
+
+[7.3 Hollow Fonts 30](#73-hollow-fonts)
+
+[7.4 Mongline fonts 31](#74-mongline-fonts)
+
+[7.5 Transform fonts into Gcode 32](#75-transform-fonts-into-gcode)
+
+[7.6 Control the machine to write through Universal Gcode Sender
+34](#76-control-the-machine-to-write-through-universal-gcode-sender)
+
+1.  **Features**
+
+2.  coreXY parallel motion
+
+3.  Simple and stable structure
+
+4.  Highly precise rail is used, well-performed writing and drawing
+
+5.  Simple control software
+
+1.  **Parameters**
+
+Power supply
+
+| Voltage | 12V |
+|---------|-----|
+| Current | 5A  |
+| Power   | 60W |
+
+**Control Board**
+
+Control Chip：Mega328P
+
+Input Voltage： 12V
+
+![IMG_256](media/a5f758376d2fdc636e7739d3fb02fa6c.png)
+
+Dimension： 297 \* 210
+
+![IMG_256](media/070824d73f1bf86564af7e7628086454.png)
+
+1.  **How to assemble**
+
+Refer to the file we provide
+
+![](media/b87fa171c23d73bba9e713ec86975386.png)
+
+##### 3.1 Install Arduino IDE and burn firmware
+
+Browse the file ![](media/2073af28c187714035196e0de350befc.png)
+
+Install Inkscape and Gcode
+
+Inkscape aims at generating Gcode that can be identified by the machine
+
+They are included in the folder we provide, as shown below;
+
+![](media/8dd3a14426106d111dfc5ff1e8258351.png)
+
+Double-click inkscape-1.1.2_2022-02-05_b8e25be833-x64.msi to install and you
+will see ![](media/122dcd65dede887b9c924ba24e9b4346.png) on the desktop
+
+1.  Add extension package
+
+Double-click Inkscape and click **Time to Draw** then **New Docunment**
+
+![](media/a88ea47afa88bf6e0a590c331b0eaa4f.png)
+
+![](media/8d4aaf4c91d2c35a5ca16a5c74ca66a9.png)
+
+Copy all files of the extension package inkscape_extension
+
+![](media/0e241ef4042ea5edc73cdd38747019ef.png)
+
+Click **Edit** and **Preferences**
+
+![](media/bf0d2932e80eab3d362c8e51394bde6f.png)
+
+Click **System** and open **User extensions**
+
+![](media/4ec683ee0dbb9145ab2d2cc86a4252f0.png)
+
+Then all files of the extension package to the following directory
+
+![](media/e48a8c7ba63c42b54c445f4be8d13f33.png)
+
+Check if the extension package is well installed
+
+Turn off inkscape and reboot it
+
+Click **Extensions**，then you will view keyestudio drawing and KM-LASER. That
+means successful installation.
+
+![](media/b2e5abbdd5bfdadb84c5d4c4c6213d7d.png)
+
+## 3.2 Install Universal Gcode Sender
+
+Universal Gcode Sender is designed to enable the movement of the machine through
+hand and command control as well as send **Gcode**
+
+You can download installation
+package：http://winder.github.io/ugs_website/download/
+
+Also, we provide it in the folder.
+
+![](media/7c70bff8c6b93204e03870f361507107.png)
+
+Unzip software package
+
+Copy ugs-platform-app-win.zi to D:\\Program Files
+
+![](media/b51a598345c680a4942a408b96427cef.png)
+
+Open the software
+
+Open the bin folder from the unzipped folder.
+
+D:\\Program Files\\ugs-platform-app-win\\ugsplatform-win\\bin
+
+If your computer is 64-bit, double-click ugsplatform64.exe
+
+![](media/c35f887c432b979cb9311e10c3baab97.png)
+
+Click ugsplatform64.exe then right-click Create shortcut to generate a shortcut
+key, as shown below;
+
+![](media/2f67ca66792cf3b551a60cc14c919c2e.png)
+
+![](media/0803d7328e60d0cdb1215edd2e9ae819.png)
+
+Then copy it to your desktop.
+
+![](media/adfd71d10898bdfd415fbb0f30945895.png)
+
+#### Modify firmware parameters
+
+##### 4.1 Wire up a power supply with USB cables
+
+![](media/54815f9a0a3a3a597d217858e953a6c1.png)
+
+##### 4.2 Connect the machine to the Universal Gcode Sender
+
+Wire up in accordance to the following figure
+
+![](media/8c25fa56a8248b1c47757065eb639e21.png)
+
+The LED on the control board will flash after the board is well connected. And
+Universal Gcode Sender will show as follows;
+
+![](media/fc9f73debe49fa710b4d43a1c9399a1d.png)
+
+##### 4.3 Control the machine to move
+
+Power up, keep moving parts not too close in that collision will occur during
+movement.
+
+![](media/f979f6c0bf3c983fb22332bf8c8be43c.png)
+
+Set steps of X and Y axis，click direction keys. Normally，the machine will move
+at X and Y axis.
+
+Step size XY stands for movement distance while clicking a key
+
+Feed rate is speed
+
+![](media/bcc0b40c6d887a29f41192f4b190c2d8.png)
+
+##### 4.4 Set motion parameter
+
+| steps of rotation | 200 |
+|-------------------|-----|
+| belt pulley       | 20  |
+| GT2 belt          | 2mm |
+
+Through calculation, 80 steps is needed when the x and y axis of the machine
+moves 1mm, the following formula is shown below:
+
+x_steps_per_mm = y_steps_per_mm =
+![51c3bb36a1411b4594ed2f5715666b29](media/09103594a6893ad13258bb416d9860aa.png)
+
+**Parameters description in the formula**
+
+Steps = Steps of the stepper motor(the step of the 1.8 degree motor is 200)
+
+Microstepping = driver configuration of the stepper motor (RAMPS is default as
+1/16 etc.)
+
+BeltPitch = teeth pitch of synchronous belt (T5 is 5.00mm , XL is 5.08mm , GT2
+is 2.0mm etc.)
+
+We use GT2
+
+PulleyTeeth =2o tooth
+
+**Finally, substitute the parameters into the formula**
+
+x_steps_per_mm = y_steps_per_mm =200\*16 / (2\*20) = 80
+
+Parameter \$100 and \$101.
+
+We decide how many steps the machine move 1 mm.
+
+need to set \$100=80, \$101=80
+
+If above two parameters differ from real parameters of the machine, the size of
+newly produced pictures will be not as same as the defined pictures
+
+**4.5 Setting method**
+
+Click **Console**，a command box will appear, as shown below;
+
+![](media/573532892a7c5cce5d6f88006644a5e4.png)
+
+Input \$\$ and click **Enter**，then you can click all parameters of the
+firmware
+
+![](media/d139fc03595e18f7df974920caad9547.png)
+
+Set \$100=80, \$101=80 ，then you need to input \$100=80 + Enter and \$101=80 +
+Enter
+
+![](media/fb2dd65fa9701dc9a2d7b84d2fffaca1.png)
+![](media/62c96b51a7ed14ba2da0229ec5c01bc4.png)
+
+## 4.6 Adjust the distance between the writing head and the paper
+
+Control command
+
+| Write        | M3 S50 (0\~90correspond to the rotation angle of 0\~180） |
+|--------------|-----------------------------------------------------------|
+| Hold the pen | M5 S0                                                     |
+
+Put an A4 paper under the machine
+
+![](media/390874b0ce1d7be232cfb77bd6e131c6.png)
+
+Send a command to control the pen holder
+
+Power up, connect USB cables
+
+Lift the pen holder，M5 S0 + Enter
+
+Lower the pen holder，M3 S50 + Enter，fix the pen on the holder and make the
+writing head touch the paper.
+
+![](media/632bb3074ed8d4a7bc44b5bc09c33b07.png)
+
+At this step, the pen holder is well adjusted.
+
+## 4.7 Adjust speed to write and draw
+
+Set parameters of the machine to \$110 and \$111 and acceleration value to \$120
+and \$121.
+
+Input \$\$ in the Command to check the configuration parameter and view \$110,
+\$111, \$120 and \$121
+
+![](media/c8de9e7a459ed85b94772ea0225db979.png)
+
+We turn \$110 and \$111into 500，\$120 and 121 are equal to 10
+
+We turn \$110 and \$111 into 5000，\$120 and 121 are turned into 200
+
+在Command中，input：\$110 = 5000 + Enter，\$111 = 5000 + Enter；
+
+\$120 = 200 + Enter，\$121 = 200 + Enter
+
+![](media/66fb7d57fb4d22f92a4e1ea4215a4d8a.png)
+
+Input \$\$
+
+![](media/71eaafc47c4fb4eebf900b0854e495b6.png)
+
+You can adjust speed values if you think speed is too fast or slow.
+
+# Generate pictures into Gcode through Inkscape
+
+Roughly all pictures can be identified and generated into contour pictures
+through Inkscape, then transformed into Gcode through an extension tool
+
+## 5.1 Generate pictures into Gcode
+
+We provide example pictures in the file. However, you can choose pictures you
+like.
+
+![](media/fe4be9a361d7ad09b500556abd5ae0cf.png)
+
+Open Inkscape. Click A4 and landscape
+
+![](media/6a2ff861cb96eb36507076415310cc61.png)
+
+**5.2 Open example pictures**
+
+You only need to drag example pictures to the interface of the software
+
+![](media/8ed930d140e576932bf6bace55e432a3.png)
+
+**5.3 Generate outline picture**
+
+1.  Click Path \> Trace Bitmap \> Update，then generate Bitmap pictures，as
+    shown below;
+
+![](media/31f174b5089134e69485d9a12e92b978.png)
+
+Drag the generated picture aside then delete the original one
+
+![](media/3b8f4f16c5555b29cd71952cb596b141.png)
+
+Adjust the size and location of bitmap picture and keep it in the paper.
+
+![](media/4288ffc82c54a8a242ae296e5358eb04.png)
+
+1.  Produce Gcode
+
+![](media/470cae3b28e5668165841f089a4c1aab.png)
+
+Adjust speed of x and y axis and how much the pen holder can lower down. Save
+the path of Gcode and name, then click Apply.
+
+![](media/e66a3d3aa0a27a691a4aee2d40dfec28.png)
+
+Click OK
+
+![](media/e3c666ff1b3a8ad69627df9fd7d02fb2.png)
+
+Open the path you saved then a new Gcode file is produced
+
+![](media/916bd7e081bcb71b140e76e7fe7d0ccc.png)
+
+# Control the machine to draw via Universal Gcode Sender
+
+We transform the picture gear 2 into gear2.gcode then send gear2.gcode to the
+pen plotter to draw gears.
+
+Open Universal Gcode Sender
+
+Click File \> Open
+
+![](media/b3fb6bad94c7ab44041a99a51217e72f.png)
+
+Save the path of the gcode and open gear2.gcode
+
+![](media/386b676a7ab18149ae77ab2568ceedc2.png)
+
+![](media/cdcb62e22f1343a3773a97ecaa1973da.png)
+
+**Connect and draw**
+
+Move the X and Y axis at the start point, leave an A4 paper under the machine
+and keep them aligned, as shown below
+
+![](media/04fc4590b43b5636afafbaf0b46be3df.png)
+
+Follow the instruction to operate
+
+![](media/420511d5a77979e4ffc5d3b4a21f036e.png)
+
+Normally, the pen plotter will start drawing the gear
+
+#### Turn fonts into Gcode through Inkscape
+
+![](media/e0e7b6a1ae75d335b41700c0f0e37974.png)
+
+This is a poem named Nothing Gold Can Stay
+
+The headline is filled font, the author name is not filled and the poem is
+monoline font. That indicates gcode is completed through three methods
+
+##### 7.1 Write a poem through inkscape
+
+Adjust the size of fonts, as shown below
+
+![](media/9f8c4a6ae3c92a8888eb6f2635a45382.png)
+
+##### 7.2 Deal with filled fonts
+
+The headline is filled
+
+Select the headline and click Path \> Object to path
+
+![](media/34f0e2cefe530dedf76edd1880ec90c9.png)
+
+Then click the headline again and click Extension \> KM-LASER \> FILL:HATCH FILL
+
+![](media/d25be4726f2cf0237ca78ff9c2e80e9e.png)
+
+Then a page appears and keep parameter unchanged and click Apply
+
+![](media/831233dbb1618a9b628eb1a0b668758a.png)
+
+Now, you will find the font of the headline change
+
+![](media/075a20aa1c6e809475d90ccfa601abf4.png)
+
+##### 7.3 Hollow Fonts
+
+The name of author is set to hollow fonts
+
+Select the name and click Path \> Object to Path
+
+![](media/1469767619a5f179d135b77bbd5421b4.png)
+
+##### 7.4 Mongline fonts
+
+Follow the instruction as below:
+
+![](media/b31fa7918b6e9bd79a64a2b540f42a19.png)
+
+![](media/4eeb8cb1f13e156030e29a3d2b204aea.png)
+
+![](media/f6f859882b0316dfdbdf5093fdd1d088.png)
+
+##### 7.5 Transform fonts into Gcode
+
+Click keyestudio drawing \> Gcode Generator to generate gcode.
+
+![](media/9526e19dfa0a3386d59663e8123b321a.png)
+
+Remember to modify the name of Gcode
+
+![](media/72ea19acab049f7f038c05a6b0081d47.png)
+
+![](media/7390be71a5dbe5d523a8d7425364f74d.png)
+
+#### 7.6 Control the machine to write through Universal Gcode Sender
+
+Move the X and Y axis at the start point, leave an A4 paper under the machine
+and keep them aligned, as shown below
+
+![](media/04fc4590b43b5636afafbaf0b46be3df.png)
+
+Open the above generated Gcode through Gcode Sender
+
+Connect and click start. Then a poem Nothing Gold Can Stay will be shown
+
+![](media/700313462efa96e6bb1b332f2232ef90.png)
+
+# 
