@@ -4,8 +4,7 @@
 
 ### 1.1 Installing Arduino IDE
 When you get control board, you need to download Arduino IDE and driver firstly.
-You could download Arduino IDE from the official website:
-https://www.arduino.cc/, click the SOFTWARE on the browse bar, click“DOWNLOADS” to enter download page, as shown below:
+You could download Arduino IDE from the official website: [https://www.arduino.cc/](https://www.arduino.cc/), click the SOFTWARE on the browse bar, click“DOWNLOADS” to enter download page, as shown below:
 ![Img](./media/img-20230927101210.png)
 ![Img](./media/img-20230927101219.png)
 
@@ -85,12 +84,12 @@ The installation instruction is as same as the chapter 1.1, as shown below:
 
 ### 2.2 Download the CH340 driver
 
-https://fs.keyestudio.com/CH340-MAC
+[https://fs.keyestudio.com/CH340-MAC](https://fs.keyestudio.com/CH340-MAC)
 
 ### 2.3 How to install the CH340 driver
 
 Please refer to the following link:
-https://wiki.keyestudio.com/Download_CH340_Driver_on_MAC_System
+[https://wiki.keyestudio.com/Download_CH340_Driver_on_MAC_System](https://wiki.keyestudio.com/Download_CH340_Driver_on_MAC_System)
 
 ### 2.4 Setting Arduino IDE
 
